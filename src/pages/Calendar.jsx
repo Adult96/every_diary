@@ -1,14 +1,14 @@
-import axios from 'axios';
 import moment from 'moment';
 import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 function CalendarPage() {
   const [value, onChange] = useState(new Date());
-
   const [mark, setMark] = useState(['2023-02-16', '2023-02-17']);
+  const navigate = useNavigate();
 
   const show = ({ date, view }) => {
     if (view === 'month') {
@@ -23,10 +23,16 @@ function CalendarPage() {
     return null;
   };
 
+  const handleCalendarDay = e => {
+    const day = moment(e).format('YYYY-MM-DD');
+    navigate(`/diary/${day}`);
+  };
+
   return (
     <CalendarContainer>
       <Calendar
         onChange={onChange}
+        onClickDay={handleCalendarDay}
         formatDay={(locale, date) => moment(date).format('DD')}
         value={value}
         tileContent={show}
