@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import diraySlice from '../module/diraySlice';
+import diary from '../module/diarySlice';
 
 const store = configureStore({
   reducer: {
-    diraySlice,
+    diary,
   },
 });
 
