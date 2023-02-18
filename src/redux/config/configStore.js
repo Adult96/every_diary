@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import todos from '../module/todosSlice';
+import diraySlice from '../module/diraySlice';
 
 const store = configureStore({
   reducer: {
-    todos,
+    diraySlice,
   },
 });
 

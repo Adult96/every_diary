@@ -1,24 +1,32 @@
 {
-  "diray": {
-    "2023-02-12": [
-      {
-        "id": "0",
-        "title": "json-server",
-        "content": "typicode",
-        "comments": [{ "id": 0, "comment": "좋아" }]
-      },
-      {
-        "id": "1",
-        "title": "json-server",
-        "content": "typicode",
-        "comments": [{ "id": 0, "comment": "좋아" }]
-      },
-      {
-        "id": "2",
-        "title": "json-server",
-        "content": "typicode",
-        "comments": [{ "id": 0, "comment": "좋아" }]
-      }
-    ]
-  }
+  "diray": [
+    {
+      "id": "0",
+      "date": "2023-02-12",
+      "title": "0번",
+      "content": "typicode",
+      "comments": [{ "id": 0, "comment": "좋아" }]
+    },
+    {
+      "id": "1",
+      "date": "2023-02-12",
+      "title": "json-server",
+      "content": "typicode",
+      "comments": [{ "id": 0, "comment": "좋아" }]
+    },
+    {
+      "id": "2",
+      "date": "2023-02-12",
+      "title": "json-server",
+      "content": "typicode",
+      "comments": [{ "id": 0, "comment": "좋아" }]
+    },
+    {
+      "id": "2",
+      "date": "2023-02-13",
+      "title": "json-server",
+      "content": "typicode",
+      "comments": [{ "id": 0, "comment": "좋아" }]
+    }
+  ]
 }

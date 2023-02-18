@@ -2,14 +2,19 @@ import axios from 'axios';
 
 const { createSlice, createAsyncThunk } = require('@reduxjs/toolkit');
 
-const initialState = {};
+const initialState = {
+  diary: [],
+  isLoading: false,
+  isError: false,
+  error: null,
+};
 
 export const __getDiray = createAsyncThunk(
   'GET_DIARYS',
   async (payload, thunkAPI) => {
     try {
       const response = await axios.get('http://localhost:4000/diray');
-      console.log(response.data);
+      console.log(true, response.data);
       return thunkAPI.fulfillWithValue(response.data); //dispatch와 같은기능 성공했을 때 전달하는 dispatch __getTodos.API 메서드 들로 전달한다
     } catch (error) {
       console.log('error', error);
@@ -19,7 +24,7 @@ export const __getDiray = createAsyncThunk(
 );
 
 const diraySlice = createSlice({
-  name: 'todos',
+  name: 'diray',
   initialState,
   reducers: '',
   extraReducers: bulider => {
@@ -30,7 +35,7 @@ const diraySlice = createSlice({
     bulider.addCase(__getDiray.fulfilled, (state, action) => {
       state.isLoading = false;
       state.isError = false;
-      state.todos = action.payload;
+      state.diary = action.payload;
     });
     bulider.addCase(__getDiray.rejected, (state, action) => {
       state.isLoading = false;
