@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import DiaryItem from '../components/DiaryItem';
 import { __getDiary } from '../redux/module/diarySlice';
 
 export default function Diary() {
-  const [showType, setShowType] = useState(false);
   const { id } = useParams();
   const dispatch = useDispatch();
   const { isLoading, diary, isError } = useSelector(state => state.diary);
@@ -20,9 +20,7 @@ export default function Diary() {
       {diary
         .filter(item => item.date === id)
         .map((item, index) => (
-          <li key={index}>
-            <p>{item.title}</p>
-          </li>
+          <DiaryItem key={index} diary={item} />
         ))}
     </ul>
   );

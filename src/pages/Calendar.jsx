@@ -29,25 +29,42 @@ function CalendarPage() {
   };
 
   return (
-    <CalendarContainer>
-      <Calendar
-        onChange={onChange}
-        onClickDay={handleCalendarDay}
-        formatDay={(locale, date) => moment(date).format('DD')}
-        value={value}
-        tileContent={show}
-      />
-    </CalendarContainer>
+    <>
+      <Banner>
+        <Img src='img/diaryBanner.png' alt='' />
+      </Banner>
+      <CalendarContainer>
+        <Calendar
+          onChange={onChange}
+          onClickDay={handleCalendarDay}
+          formatDay={(locale, date) => moment(date).format('DD')}
+          value={value}
+          tileContent={show}
+        />
+      </CalendarContainer>
+    </>
   );
 }
 
+const Banner = styled.div`
+  width: 100%;
+  height: 20vh;
+`;
+
+const Img = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem 1rem 0 0;
+`;
+
 const CalendarContainer = styled.div`
   .react-calendar {
-    width: 400px;
+    width: 100%;
     max-width: 100%;
     background-color: #fff;
     color: #222;
-    border-radius: 8px;
+    border-radius: 0 0 1rem 1rem;
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.125em;
@@ -66,12 +83,17 @@ const CalendarContainer = styled.div`
   .react-calendar__navigation button[disabled] {
     background-color: #f0f0f0;
   }
+
   abbr[title] {
     text-decoration: none;
   }
-  /* .react-calendar__month-view__days__day--weekend {
-  color: #d10000;
- } */
+  .react-calendar__month-view__days {
+    height: 65vh;
+  }
+
+  .react-calendar__month-view__days__day--weekend {
+    color: #d10000;
+  }
   .react-calendar__tile:enabled:hover,
   .react-calendar__tile:enabled:focus {
     background: #f8f8fa;
