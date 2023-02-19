@@ -1,5 +1,12 @@
 {
-  "diary": [],
+  "diary": [
+    {
+      "date": "2023-02-12",
+      "title": "1",
+      "content": "2",
+      "id": 1
+    }
+  ],
   "comments": [
     {
       "id": 0,

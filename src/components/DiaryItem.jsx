@@ -1,8 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { __deleteDiary } from '../redux/module/diarySlice';
 
 export default function DiaryItem({ diary }) {
   return (

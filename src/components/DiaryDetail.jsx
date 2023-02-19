@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from '../element/Button';
-import { __addDiary, __editDiary } from '../redux/module/diarySlice';
+import { addDiary, editDiary } from '../redux/module/diarySlice';
 
 export default function DiaryDetail() {
   const [titleAdd, setTitle] = useState('');
@@ -21,12 +21,18 @@ export default function DiaryDetail() {
   }, []);
 
   const handleAddDiary = () => {
-    dispatch(__addDiary({ date, title: titleAdd, content: contentAdd }));
-    navigate(`/diary/${date}`);
+    addDiary({ date, title: titleAdd, content: contentAdd }, () => {
+      navigate(`/diary/${date}`);
+    });
   };
 
   const handleEditDiary = () => {
-    dispatch(__editDiary({ id, title: titleAdd, content: contentAdd }));
+    editDiary({ id, title: titleAdd, content: contentAdd }, () => {
+      navigate(`/diary/${date}`);
+    });
+  };
+
+  const handleBackDiary = () => {
     navigate(`/diary/${date}`);
   };
 
@@ -50,15 +56,20 @@ export default function DiaryDetail() {
       </TextBox>
       <BtnBox>
         {id === 'add' ? (
-          <Button width='5rem' height='3rem' click={handleAddDiary}>
-            추가
-          </Button>
+          <>
+            <Button width='5rem' height='3rem' click={handleAddDiary}>
+              추가
+            </Button>
+            <Button width='5rem' height='3rem' click={handleBackDiary}>
+              나가기
+            </Button>
+          </>
         ) : (
           <>
             <Button width='5rem' height='3rem' click={handleEditDiary}>
               수정
             </Button>
-            <Button width='5rem' height='3rem'>
+            <Button width='5rem' height='3rem' click={handleBackDiary}>
               나가기
             </Button>
           </>

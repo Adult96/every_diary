@@ -9,23 +9,19 @@ const initialState = {
   error: null,
 };
 
-export const __addDiary = createAsyncThunk(
-  'ADD_DIARY',
-  async (payload, thunkAPI) => {
-    await axios.post(`http://localhost:4000/diary`, payload);
-  }
-);
+export const addDiary = async (payload, callback) => {
+  await axios.post(`http://localhost:4000/diary`, payload);
+  callback();
+};
 
-export const __editDiary = createAsyncThunk(
-  'EDIT_DIARY',
-  async (payload, thunkAPI) => {
-    const { id, title, content } = payload;
-    await axios.patch(`http://localhost:4000/diary/${id}`, {
-      title,
-      content,
-    });
-  }
-);
+export const editDiary = async (payload, callback) => {
+  const { id, title, content } = payload;
+  await axios.patch(`http://localhost:4000/diary/${id}`, {
+    title,
+    content,
+  });
+  callback();
+};
 
 export const deleteDiary = async (payload, callback) => {
   await axios.delete(`http://localhost:4000/diary/${payload}`);

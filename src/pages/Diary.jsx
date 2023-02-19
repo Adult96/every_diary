@@ -34,6 +34,9 @@ export default function Diary() {
           .filter(item => item.date === date)
           .map((item, index) => (
             <Container key={index}>
+              <Link to={`/diary/${date}/${item.id}`} state={{ ...item }}>
+                <DiaryItem diary={item} />
+              </Link>
               <BtnBox>
                 <Button
                   width='3rem'
@@ -45,9 +48,6 @@ export default function Diary() {
                   삭제
                 </Button>
               </BtnBox>
-              <Link to={`/diary/${date}/${item.id}`} state={{ ...item }}>
-                <DiaryItem diary={item} />
-              </Link>
             </Container>
           ))}
         <ItemAdd>
@@ -75,14 +75,19 @@ const Ul = styled.ul`
   transition: all 300ms ease-in-out;
 `;
 
-const Container = styled.div``;
-
-const BtnBox = styled.div`
-  display: flex;
-  justify-content: end;
+const Container = styled.div`
+  position: relative;
 `;
 
-const ItemAdd = styled.li`
+const BtnBox = styled.div`
+  position: absolute;
+  right: 10px;
+  display: flex;
+  justify-content: end;
+  transform: translateY(-2rem);
+`;
+
+const ItemAdd = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
