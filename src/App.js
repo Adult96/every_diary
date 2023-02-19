@@ -21,7 +21,7 @@ function App() {
         <Button
           width='6vw'
           height='5vh'
-          mode={darkMode}
+          mode={darkMode ? 'true' : ''}
           click={handleStyleMode}
         >
           {theme.innerText}
