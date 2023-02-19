@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from '../element/Button';
 import { __addDiary } from '../redux/module/diarySlice';
@@ -9,12 +9,15 @@ export default function DiaryDetail() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const { id } = useParams();
+  const {
+    state: { date },
+  } = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleAddDiary = () => {
-    dispatch(__addDiary({ date: '2023-02-12', title, content }));
-    navigate('/diary/2023-02-12');
+    dispatch(__addDiary({ date, title, content }));
+    navigate(`/diary/${date}`);
   };
 
   return (
@@ -46,7 +49,7 @@ export default function DiaryDetail() {
               수정
             </Button>
             <Button width='5rem' height='3rem'>
-              삭제
+              나가기
             </Button>
           </>
         )}
