@@ -1,20 +1,43 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from '../element/Button';
+import { __addDiary } from '../redux/module/diarySlice';
 
 export default function DiaryDetail() {
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
   const { id } = useParams();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleAddDiary = () => {
+    dispatch(__addDiary({ date: '2023-02-12', title, content }));
+    navigate('/diary/2023-02-12');
+  };
 
   return (
     <Container>
       <TextBox>
-        <Input type='text' placeholder='Title' />
-        <Textarea name='' id='' cols='30' placeholder='comment' />
+        <Input
+          type='text'
+          placeholder='Title'
+          value={title}
+          onChange={e => setTitle(e.target.value)}
+        />
+        <Textarea
+          name=''
+          id=''
+          cols='30'
+          placeholder='content'
+          value={content}
+          onChange={e => setContent(e.target.value)}
+        />
       </TextBox>
       <BtnBox>
         {id === 'add' ? (
-          <Button width='5rem' height='3rem'>
+          <Button width='5rem' height='3rem' click={handleAddDiary}>
             추가
           </Button>
         ) : (
