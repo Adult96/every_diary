@@ -15,5 +15,6 @@ const Item = styled.li`
   border: 1px solid ${props => props.theme.borderColor};
   border-radius: 1rem;
   padding: 1rem;
+  cursor: pointer;
   transition: all 300ms ease-in-out;
 `;
