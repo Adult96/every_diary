@@ -6,6 +6,7 @@ import App from './App';
 import Diary from './pages/Diary';
 import { Provider } from 'react-redux';
 import store from './redux/config/configStore';
+import DiaryDetail from './components/DiaryDetail';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: '/diary/:id',
         element: <Diary />,
+      },
+      {
+        path: '/diary/:id/:id',
+        element: <DiaryDetail />,
       },
     ],
   },

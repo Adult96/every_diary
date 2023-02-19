@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import DiaryItem from '../components/DiaryItem';
 import { __getDiary } from '../redux/module/diarySlice';
@@ -18,13 +18,16 @@ export default function Diary() {
 
   if (isLoading) return <div>로딩중</div>;
   if (isError) return <div>에러</div>;
+  console.log(diary, id);
   return (
     <>
       <Ul>
         {diary
           .filter(item => item.date === id)
           .map((item, index) => (
-            <DiaryItem key={index} diary={item} />
+            <Link to={`/diary/${id}/${item.id}`} state={{ item }}>
+              <DiaryItem key={index} diary={item} />
+            </Link>
           ))}
         <ItemAdd>
           <Button width='100%' height='15rem' fontSize='4rem'>
