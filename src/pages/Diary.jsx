@@ -1,41 +1,62 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import DiaryItem from '../components/DiaryItem';
 import { __getDiary } from '../redux/module/diarySlice';
 import Button from '../element/Button';
 import { AiFillFileAdd } from 'react-icons/ai';
+import { deleteDiary } from '../redux/module/diarySlice';
+import axios from 'axios';
 
 export default function Diary() {
   const { date } = useParams();
   const dispatch = useDispatch();
+
   const { isLoading, diary, isError } = useSelector(state => state.diary);
 
   useEffect(() => {
     dispatch(__getDiary());
   }, [dispatch]);
 
+  const handleDeleteDiary = async id => {
+    deleteDiary(id, () => {
+      dispatch(__getDiary());
+    });
+  };
+
   if (isLoading) return <div>로딩중</div>;
   if (isError) return <div>에러</div>;
-  console.log(diary, date);
   return (
     <>
       <Ul>
         {diary
           .filter(item => item.date === date)
           .map((item, index) => (
-            <Link to={`/diary/${date}/${item.id}`} state={{ ...item }}>
-              <DiaryItem key={index} diary={item} />
-            </Link>
+            <Container key={index}>
+              <BtnBox>
+                <Button
+                  width='3rem'
+                  height='1.5rem'
+                  click={() => {
+                    handleDeleteDiary(item.id);
+                  }}
+                >
+                  삭제
+                </Button>
+              </BtnBox>
+              <Link to={`/diary/${date}/${item.id}`} state={{ ...item }}>
+                <DiaryItem diary={item} />
+              </Link>
+            </Container>
           ))}
-        <Link to={`/diary/${date}/add`} state={{ date }}>
-          <ItemAdd>
+        <ItemAdd>
+          <Link to={`/diary/${date}/add`} state={{ date }}>
             <Button width='100%' height='15rem' fontSize='4rem'>
               <AiFillFileAdd />
             </Button>
-          </ItemAdd>
-        </Link>
+          </Link>
+        </ItemAdd>
       </Ul>
     </>
   );
@@ -52,6 +73,13 @@ const Ul = styled.ul`
   border-radius: 0 0 1rem 1rem;
   overflow-y: scroll;
   transition: all 300ms ease-in-out;
+`;
+
+const Container = styled.div``;
+
+const BtnBox = styled.div`
+  display: flex;
+  justify-content: end;
 `;
 
 const ItemAdd = styled.li`
