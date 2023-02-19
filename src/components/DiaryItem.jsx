@@ -3,9 +3,14 @@ import styled from 'styled-components';
 
 export default function DiaryItem({ diary }) {
   return (
-    <li>
+    <Item>
       <p>{diary.title}</p>
       <p>{diary.content}</p>
-    </li>
+    </Item>
   );
 }
+
+const Item = styled.li`
+  height: 200px;
+  border: 1px solid ${props => props.theme.borderColor};
+`;

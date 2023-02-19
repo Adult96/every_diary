@@ -6,7 +6,6 @@ import App from './App';
 import Diary from './pages/Diary';
 import { Provider } from 'react-redux';
 import store from './redux/config/configStore';
-import GlobalStyle from './styles/GlobalStyle';
 
 const router = createBrowserRouter([
   {
@@ -28,7 +27,6 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <GlobalStyle />
     <Provider store={store}>
       <RouterProvider router={router} />
     </Provider>

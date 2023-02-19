@@ -29,41 +29,24 @@ function CalendarPage() {
   };
 
   return (
-    <>
-      <Banner>
-        <Img src='img/diaryBanner.png' alt='' />
-      </Banner>
-      <CalendarContainer>
-        <Calendar
-          onChange={onChange}
-          onClickDay={handleCalendarDay}
-          formatDay={(locale, date) => moment(date).format('DD')}
-          value={value}
-          tileContent={show}
-        />
-      </CalendarContainer>
-    </>
+    <CalendarContainer>
+      <Calendar
+        onChange={onChange}
+        onClickDay={handleCalendarDay}
+        formatDay={(locale, date) => moment(date).format('DD')}
+        value={value}
+        tileContent={show}
+      />
+    </CalendarContainer>
   );
 }
-
-const Banner = styled.div`
-  width: 100%;
-  height: 20vh;
-`;
-
-const Img = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 1rem 1rem 0 0;
-`;
 
 const CalendarContainer = styled.div`
   .react-calendar {
     width: 100%;
     max-width: 100%;
-    background-color: #fff;
-    color: #222;
+    background-color: ${props => props.theme.bg};
+    color: ${props => props.theme.text};
     border-radius: 0 0 1rem 1rem;
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
     font-family: Arial, Helvetica, sans-serif;
@@ -78,10 +61,10 @@ const CalendarContainer = styled.div`
   }
   .react-calendar__navigation button:enabled:hover,
   .react-calendar__navigation button:enabled:focus {
-    background-color: #f8f8fa;
+    background-color: ${props => props.theme.bgHover};
   }
   .react-calendar__navigation button[disabled] {
-    background-color: #f0f0f0;
+    background-color: ${props => props.theme.bgHover};
   }
 
   abbr[title] {
@@ -91,12 +74,17 @@ const CalendarContainer = styled.div`
     height: 65vh;
   }
 
+  .react-calendar__month-view__days__day {
+    color: ${props => props.theme.text};
+  }
+
   .react-calendar__month-view__days__day--weekend {
     color: #d10000;
   }
+
   .react-calendar__tile:enabled:hover,
   .react-calendar__tile:enabled:focus {
-    background: #f8f8fa;
+    background: ${props => props.theme.bgHover};
     color: #6f48eb;
     border-radius: 6px;
   }
@@ -115,21 +103,21 @@ const CalendarContainer = styled.div`
   }
   .react-calendar__tile--hasActive:enabled:hover,
   .react-calendar__tile--hasActive:enabled:focus {
-    background: #f8f8fa;
+    background: ${props => props.theme.bgHover};
   }
   .react-calendar__tile--active {
     background: #6f48eb;
     border-radius: 6px;
     font-weight: bold;
-    color: white;
+    color: ${props => props.theme.text};
   }
   .react-calendar__tile--active:enabled:hover,
   .react-calendar__tile--active:enabled:focus {
     background: #6f48eb;
-    color: white;
+    color: ${props => props.theme.text};
   }
   .react-calendar--selectRange .react-calendar__tile--hover {
-    background-color: #f8f8fa;
+    background-color: ${props => props.theme.bg};
   }
   .react-calendar__tile--range {
     background: #f8f8fa;
@@ -142,7 +130,7 @@ const CalendarContainer = styled.div`
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
     background: #6f48eb;
-    color: white;
+    color: ${props => props.theme.text};
   }
   .react-calendar__tile--rangeEnd {
     border-top-left-radius: 0;
@@ -150,7 +138,7 @@ const CalendarContainer = styled.div`
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
     background: #6f48eb;
-    color: white;
+    color: ${props => props.theme.text};
   }
 `;
 

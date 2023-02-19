@@ -132,6 +132,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: ${props => props.theme.bg};
+  color: ${props => props.theme.text};
 }
 
 * {
