@@ -29,11 +29,13 @@ export default function Diary() {
               <DiaryItem key={index} diary={item} />
             </Link>
           ))}
-        <ItemAdd>
-          <Button width='100%' height='15rem' fontSize='4rem'>
-            <AiFillFileAdd />
-          </Button>
-        </ItemAdd>
+        <Link to={`/diary/${id}/add`}>
+          <ItemAdd>
+            <Button width='100%' height='15rem' fontSize='4rem'>
+              <AiFillFileAdd />
+            </Button>
+          </ItemAdd>
+        </Link>
       </Ul>
     </>
   );
