@@ -8,7 +8,7 @@ import Button from '../element/Button';
 import { AiFillFileAdd } from 'react-icons/ai';
 
 export default function Diary() {
-  const { id } = useParams();
+  const { date } = useParams();
   const dispatch = useDispatch();
   const { isLoading, diary, isError } = useSelector(state => state.diary);
 
@@ -18,18 +18,18 @@ export default function Diary() {
 
   if (isLoading) return <div>로딩중</div>;
   if (isError) return <div>에러</div>;
-  console.log(diary, id);
+  console.log(diary, date);
   return (
     <>
       <Ul>
         {diary
-          .filter(item => item.date === id)
+          .filter(item => item.date === date)
           .map((item, index) => (
-            <Link to={`/diary/${id}/${item.id}`} state={{ item }}>
+            <Link to={`/diary/${date}/${item.id}`} state={{ item }}>
               <DiaryItem key={index} diary={item} />
             </Link>
           ))}
-        <Link to={`/diary/${id}/add`} state={{ id }}>
+        <Link to={`/diary/${date}/add`} state={{ date }}>
           <ItemAdd>
             <Button width='100%' height='15rem' fontSize='4rem'>
               <AiFillFileAdd />

@@ -18,7 +18,7 @@ const router = createBrowserRouter([
         element: <CalendarPage />,
       },
       {
-        path: '/diary/:id',
+        path: '/diary/:date',
         element: <Diary />,
       },
       {
