@@ -6,7 +6,7 @@ import { useState } from 'react';
 import GlobalStyle from './styles/GlobalStyle';
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const theme = darkMode ? darkTheme : lightTheme;
 
   return (

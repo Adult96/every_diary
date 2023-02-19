@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import DiaryItem from '../components/DiaryItem';
 import { __getDiary } from '../redux/module/diarySlice';
+import Button from '../element/Button';
+import { AiFillFileAdd } from 'react-icons/ai';
 
 export default function Diary() {
   const { id } = useParams();
@@ -25,8 +27,9 @@ export default function Diary() {
             <DiaryItem key={index} diary={item} />
           ))}
         <ItemAdd>
-          <p>{diary.title}</p>
-          <p>{diary.content}</p>
+          <Button width='8rem' height='5rem' fontSize='4rem'>
+            <AiFillFileAdd />
+          </Button>
         </ItemAdd>
       </Ul>
     </>
@@ -46,6 +49,8 @@ const Ul = styled.ul`
 `;
 
 const ItemAdd = styled.li`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 200px;
-  border: 1px solid ${props => props.theme.borderColor};
 `;
