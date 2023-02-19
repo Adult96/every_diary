@@ -12,9 +12,18 @@ const initialState = {
 export const __addDiary = createAsyncThunk(
   'ADD_NUMBER_WAIT',
   async (payload, thunkAPI) => {
-    console.log(payload);
-
     await axios.post(`http://localhost:4000/diary`, payload);
+  }
+);
+
+export const __editDiary = createAsyncThunk(
+  'ADD_NUMBER_WAIT',
+  async (payload, thunkAPI) => {
+    const { id, title, content } = payload;
+    await axios.patch(`http://localhost:4000/diary/${id}`, {
+      title,
+      content,
+    });
   }
 );
 
@@ -35,12 +44,7 @@ export const __getDiary = createAsyncThunk(
 const diarySlice = createSlice({
   name: 'diary',
   initialState,
-  reducers: {
-    addNumber: (state, action) => {
-      console.log(action);
-      state.diary = state.number + action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: bulider => {
     bulider.addCase(__getDiary.pending, (state, action) => {
       state.isLoading = true;

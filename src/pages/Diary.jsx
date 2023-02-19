@@ -25,7 +25,7 @@ export default function Diary() {
         {diary
           .filter(item => item.date === date)
           .map((item, index) => (
-            <Link to={`/diary/${date}/${item.id}`} state={{ item }}>
+            <Link to={`/diary/${date}/${item.id}`} state={{ ...item }}>
               <DiaryItem key={index} diary={item} />
             </Link>
           ))}
