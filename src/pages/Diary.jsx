@@ -88,8 +88,5 @@ const BtnBox = styled.div`
 `;
 
 const ItemAdd = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 15rem;
 `;
