@@ -10,6 +10,8 @@ const color = {
   light_grey: '#7c7979',
   dark_blue: '#497da0',
   blue: '#73aace',
+  dark_blue: '#413d53',
+  deep_blue: '#262431',
   yellow: '#fff7d1',
   orange: '#feb546',
   black: '#000000',
@@ -47,13 +49,17 @@ const light = {
   bgHover: color.light_white,
   text: color.black,
   borderColor: color.black,
+  innerText: 'Light',
+  bgBtnColor: color.light_white,
 };
 
 const dark = {
-  bg: color.black,
+  bg: color.deep_blue,
   bgHover: color.ligth_black,
   text: color.white,
   borderColor: color.light_grey,
+  innerText: 'Dark',
+  bgBtnColor: color.dark_blue,
 };
 
 export const lightTheme = { ...light };

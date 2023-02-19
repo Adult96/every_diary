@@ -51,6 +51,7 @@ const CalendarContainer = styled.div`
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.125em;
+    transition: all 300ms ease-in-out;
   }
   .react-calendar__navigation button {
     color: #6f48eb;
@@ -70,6 +71,7 @@ const CalendarContainer = styled.div`
   abbr[title] {
     text-decoration: none;
   }
+
   .react-calendar__month-view__days {
     height: 65vh;
   }

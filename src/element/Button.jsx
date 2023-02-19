@@ -1,9 +1,22 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export default function Button({ width, height, fontSize, children }) {
+export default function Button({
+  width,
+  height,
+  fontSize,
+  mode,
+  click,
+  children,
+}) {
   return (
-    <Btn width={width} height={height} fontSize={fontSize}>
+    <Btn
+      width={width}
+      height={height}
+      fontSize={fontSize}
+      mode={mode}
+      onClick={click}
+    >
       {children}
     </Btn>
   );
@@ -16,10 +29,17 @@ const Btn = styled.button`
   width: ${props => props.width};
   height: ${props => props.height};
   color: ${props => props.theme.text};
-  background-color: transparent;
-  border: 1px solid ${props => props.theme.borderColor};
+  background-color: ${props => props.theme.bgBtnColor};
+  /* border: 1px solid ${props => props.theme.borderColor}; */
+  border: none;
   border-radius: 1rem;
   outline: none;
   font-size: ${props => props.fontSize};
   cursor: pointer;
+  transition: all 300ms ease-in-out;
+  ${props =>
+    props.mode &&
+    css`
+      transform: translateX(6.1vw);
+    `};
 `;
