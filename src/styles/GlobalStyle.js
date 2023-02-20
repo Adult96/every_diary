@@ -139,6 +139,8 @@ body {
 
 * {
   box-sizing: border-box;
+  text-decoration-line: none;
+  color: inherit;
 }
 
 code {
