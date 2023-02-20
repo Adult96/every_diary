@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import CalendarContainer from '../styles/CalendarStyle';
+import CalendarContainer from '../styles/calendarStyle';
 
 import moment from 'moment';
 import styled from 'styled-components';
@@ -35,6 +35,7 @@ function CalendarPage() {
     navigate(`/diary/${day}`);
   };
 
+  //컴포넌트로 분리 하기
   const show = ({ date, view }) => {
     if (view === 'month') {
       if (mark.find(x => x === moment(date).format('YYYY-MM-DD'))) {

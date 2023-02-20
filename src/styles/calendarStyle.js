@@ -10,7 +10,6 @@ const CalendarContainer = styled.div`
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.125em;
-    /* transition: all 300ms ease-in-out; */
   }
   .react-calendar__navigation button {
     color: #6f48eb;
@@ -42,7 +41,10 @@ const CalendarContainer = styled.div`
   .react-calendar__month-view__days__day--weekend {
     color: #d10000;
   }
-
+  .react-calendar__month-view__days__day--neighboringMonth {
+    color: #7c7979;
+    background-color: ${props => props.theme.calrendarBg};
+  }
   .react-calendar__tile:enabled:hover,
   .react-calendar__tile:enabled:focus {
     background: ${props => props.theme.bgHover};

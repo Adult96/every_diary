@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import styled from 'styled-components';
-import GlobalStyle from './styles/GlobalStyle';
+import GlobalStyle from './styles/globalStyle';
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from './styles/theme';
 

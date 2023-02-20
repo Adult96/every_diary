@@ -11,6 +11,7 @@ const color = {
   dark_blue: '#497da0',
   blue: '#73aace',
   shark_blue: '#413d53',
+  shark_light_blue: '#56516a',
   deep_blue: '#262431',
   yellow: '#fff7d1',
   orange: '#feb546',
@@ -19,6 +20,8 @@ const color = {
   dark_mint: '#25c79a',
   mint: '#54efc3',
   purple: '#6f48eb',
+  light_purple: '#ede8fd',
+  dark_purple: '#4c4956',
   trans: 'transparent',
 };
 
@@ -52,16 +55,18 @@ const light = {
   innerText: 'Light',
   bgBtnColor: color.light_white,
   bgInputColor: color.light_white,
+  calrendarBg: color.light_white,
 };
 
 const dark = {
   bg: color.deep_blue,
-  bgHover: color.ligth_black,
+  bgHover: color.shark_blue,
   text: color.white,
   borderColor: color.light_grey,
   innerText: 'Dark',
   bgBtnColor: color.shark_blue,
   bgInputColor: color.shark_blue,
+  calrendarBg: color.shark_blue,
 };
 
 export const lightTheme = { ...light };
