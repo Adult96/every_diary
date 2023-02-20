@@ -51,6 +51,7 @@ const light = {
   borderColor: color.black,
   innerText: 'Light',
   bgBtnColor: color.light_white,
+  bgInputColor: color.light_white,
 };
 
 const dark = {
@@ -60,6 +61,7 @@ const dark = {
   borderColor: color.light_grey,
   innerText: 'Dark',
   bgBtnColor: color.dark_blue,
+  bgInputColor: color.dark_blue,
 };
 
 export const lightTheme = { ...light };

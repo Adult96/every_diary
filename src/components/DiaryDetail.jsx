@@ -100,6 +100,9 @@ const TextBox = styled.div`
 const Input = styled.input`
   width: 100%;
   height: 3rem;
+  border: 1px solid ${props => props.theme.bg};
+  outline: none;
+  background-color: ${props => props.theme.bgInputColor};
   font-size: 2rem;
   margin-bottom: 0.5rem;
 `;
@@ -107,6 +110,9 @@ const Input = styled.input`
 const Textarea = styled.textarea`
   width: 100%;
   height: 100%;
+  border: 1px solid ${props => props.theme.bg};
+  outline: none;
+  background-color: ${props => props.theme.bgInputColor};
   font-size: 1.5rem;
   resize: none;
 `;
