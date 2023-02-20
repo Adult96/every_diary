@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from '../element/Button';
@@ -9,16 +8,15 @@ export default function DiaryDetail() {
   const [titleAdd, setTitle] = useState('');
   const [contentAdd, setContent] = useState('');
   const { id } = useParams();
+  const navigate = useNavigate();
   const {
     state: { date, title, content },
   } = useLocation();
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   useEffect(() => {
     title && setTitle(title);
     content && setContent(content);
-  }, []);
+  }, [content, title]);
 
   const handleAddDiary = () => {
     addDiary({ date, title: titleAdd, content: contentAdd }, () => {
