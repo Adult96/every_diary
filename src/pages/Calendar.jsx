@@ -10,6 +10,7 @@ import moment from 'moment';
 import styled from 'styled-components';
 
 import { __getDiary } from '../redux/module/diarySlice';
+import Loading from '../components/Loading';
 
 function CalendarPage() {
   const navigate = useNavigate();
@@ -46,7 +47,7 @@ function CalendarPage() {
     return null;
   };
 
-  if (isLoading) return <div>로딩중</div>;
+  if (isLoading) return <Loading />;
   if (isError) return <div>에러</div>;
   return (
     <CalendarContainer>

@@ -9,6 +9,7 @@ import { deleteDiary } from '../redux/module/diarySlice';
 import styled from 'styled-components';
 import Button from '../element/Button';
 import DiaryItem from '../components/DiaryItem';
+import Loading from '../components/Loading';
 
 export default function Diary() {
   const { date } = useParams();
@@ -26,7 +27,8 @@ export default function Diary() {
     });
   };
 
-  if (isLoading) return <div>로딩중</div>;
+  // return <Loading />;
+  if (isLoading) return <Loading />;
   if (isError) return <div>에러</div>;
   return (
     <>
