@@ -6,29 +6,16 @@ import GlobalStyle from './styles/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from './styles/theme';
 
-import Button from './element/Button';
+import ThemeMode from './components/ThemeMode';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const theme = darkMode ? darkTheme : lightTheme;
 
-  const handleStyleMode = () => {
-    setDarkMode(mode => !mode);
-  };
-
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <StyleMode>
-        <Button
-          width='6vw'
-          height='5vh'
-          mode={darkMode ? 'true' : ''}
-          click={handleStyleMode}
-        >
-          {theme.innerText}
-        </Button>
-      </StyleMode>
+      <ThemeMode theme={theme} darkMode={darkMode} onDarkMode={setDarkMode} />
       <Main>
         <Banner>
           <Img src='/img/diaryBanner.png' alt='' />
@@ -44,15 +31,6 @@ const Main = styled.main`
   height: 100%;
   margin: auto;
   /* transition: all 300ms ease-in-out; */
-`;
-
-const StyleMode = styled.div`
-  position: absolute;
-  width: 12vw;
-  height: 5vh;
-  border-radius: 1rem;
-  background-color: #dadada;
-  transform: translateX(10px);
 `;
 
 const Banner = styled.div`
