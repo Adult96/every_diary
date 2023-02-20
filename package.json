@@ -27,7 +27,6 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "dev": "NODE_ENV=development node server.js",
     "start": "react-scripts start",
     "start:dev": "cross-env NODE_PATH=src react-scripts start",
     "build": "cross-env NODE_PATH=src react-scripts build",
