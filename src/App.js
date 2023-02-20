@@ -1,9 +1,11 @@
-import { ThemeProvider } from 'styled-components';
-import { darkTheme, lightTheme } from './styles/Theme';
-import { Outlet } from 'react-router-dom';
-import styled from 'styled-components';
 import { useState } from 'react';
+import { Outlet } from 'react-router-dom';
+
+import styled from 'styled-components';
 import GlobalStyle from './styles/GlobalStyle';
+import { ThemeProvider } from 'styled-components';
+import { darkTheme, lightTheme } from './styles/theme';
+
 import Button from './element/Button';
 
 function App() {
