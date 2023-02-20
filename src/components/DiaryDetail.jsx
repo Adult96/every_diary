@@ -22,18 +22,18 @@ export default function DiaryDetail() {
 
   const handleAddDiary = () => {
     addDiary({ date, title: titleAdd, content: contentAdd }, () => {
-      navigate(`/diary/${date}`);
+      navigate(-1);
     });
   };
 
   const handleEditDiary = () => {
     editDiary({ id, title: titleAdd, content: contentAdd }, () => {
-      navigate(`/diary/${date}`);
+      navigate(-1);
     });
   };
 
   const handleBackDiary = () => {
-    navigate(`/diary/${date}`);
+    navigate(-1);
   };
 
   return (
