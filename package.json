@@ -2,6 +2,8 @@
   "name": "calendar",
   "version": "0.1.0",
   "private": true,
+  "main": "server.js",
+  "license": "MIT",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.2",
     "@testing-library/jest-dom": "^5.14.1",
@@ -25,13 +27,11 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "dev": "NODE_ENV=development node server.js",
-    "start": "NODE_ENV=production node server.js",
+    "start": "node server",
     "start:dev": "cross-env NODE_PATH=src react-scripts start",
     "build": "cross-env NODE_PATH=src react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "heroku-postbuild": "cross-env NODE_PATH=src npm run build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
