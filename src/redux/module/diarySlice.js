@@ -40,7 +40,7 @@ export const __getDiary = createAsyncThunk(
   }
 );
 
-const diarySlice = createSlice({
+const getDiarySlice = createSlice({
   name: 'diary',
   initialState,
   reducers: {},
@@ -62,5 +62,5 @@ const diarySlice = createSlice({
   },
 });
 
-export const {} = diarySlice.actions;
-export default diarySlice.reducer;
+export const {} = getDiarySlice.actions;
+export default getDiarySlice.reducer;

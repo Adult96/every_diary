@@ -87,7 +87,7 @@ const Container = styled.div`
   padding: 1rem;
   border: 1px solid ${props => props.theme.borderColor};
   border-radius: 0 0 1rem 1rem;
-  transition: all 300ms ease-in-out;
+  /* transition: all 300ms ease-in-out; */
 `;
 
 const TextBox = styled.div`

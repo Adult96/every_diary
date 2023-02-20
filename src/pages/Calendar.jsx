@@ -10,9 +10,11 @@ import { __getDiary } from '../redux/module/diarySlice';
 function CalendarPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { isLoading, diary, isError } = useSelector(state => state.diary);
+
   const [value, onChange] = useState(new Date());
   const [mark, setMark] = useState([]);
+
+  const { isLoading, diary, isError } = useSelector(state => state.getDiary);
 
   useEffect(() => {
     dispatch(__getDiary());
@@ -65,7 +67,7 @@ const CalendarContainer = styled.div`
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.125em;
-    transition: all 300ms ease-in-out;
+    /* transition: all 300ms ease-in-out; */
   }
   .react-calendar__navigation button {
     color: #6f48eb;

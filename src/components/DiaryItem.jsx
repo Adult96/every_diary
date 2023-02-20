@@ -18,7 +18,6 @@ const Item = styled.li`
   border-radius: 1rem;
   padding: 1rem;
   cursor: pointer;
-  transition: all 300ms ease-in-out;
 `;
 
 const TextBox = styled.div`

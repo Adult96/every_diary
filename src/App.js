@@ -41,7 +41,7 @@ const Main = styled.main`
   width: 70vw;
   height: 100%;
   margin: auto;
-  transition: all 300ms ease-in-out;
+  /* transition: all 300ms ease-in-out; */
 `;
 
 const StyleMode = styled.div`

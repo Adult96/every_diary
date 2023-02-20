@@ -13,7 +13,7 @@ export default function Diary() {
   const { date } = useParams();
   const dispatch = useDispatch();
 
-  const { isLoading, diary, isError } = useSelector(state => state.diary);
+  const { isLoading, diary, isError } = useSelector(state => state.getDiary);
 
   useEffect(() => {
     dispatch(__getDiary());
@@ -72,7 +72,7 @@ const Ul = styled.ul`
   border: 1px solid ${props => props.theme.borderColor};
   border-radius: 0 0 1rem 1rem;
   overflow-y: scroll;
-  transition: all 300ms ease-in-out;
+  /* transition: all 300ms ease-in-out; */
 `;
 
 const Container = styled.div`

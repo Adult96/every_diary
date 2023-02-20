@@ -36,7 +36,6 @@ const Btn = styled.button`
   outline: none;
   font-size: ${props => props.fontSize};
   cursor: pointer;
-  transition: all 300ms ease-in-out;
   ${props =>
     props.mode &&
     css`
