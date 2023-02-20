@@ -33,9 +33,9 @@ export const __getDiary = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       const response = await axios.get('http://localhost:4000/diary');
-      return thunkAPI.fulfillWithValue(response.data); //dispatch와 같은기능 성공했을 때 전달하는 dispatch __getTodos.API 메서드 들로 전달한다
+      return thunkAPI.fulfillWithValue(response.data);
     } catch (error) {
-      return thunkAPI.rejectWithValue(error); //dispatch와 같은기능 실패했을 때 전달하는 dispatch
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );

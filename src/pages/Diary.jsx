@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate, useParams } from 'react-router-dom';
-import styled from 'styled-components';
-import DiaryItem from '../components/DiaryItem';
-import { __getDiary } from '../redux/module/diarySlice';
-import Button from '../element/Button';
+import { Link, useParams } from 'react-router-dom';
 import { AiFillFileAdd } from 'react-icons/ai';
+
+import { __getDiary } from '../redux/module/diarySlice';
 import { deleteDiary } from '../redux/module/diarySlice';
-import axios from 'axios';
+
+import styled from 'styled-components';
+import Button from '../element/Button';
+import DiaryItem from '../components/DiaryItem';
 
 export default function Diary() {
   const { date } = useParams();
@@ -72,7 +73,6 @@ const Ul = styled.ul`
   border: 1px solid ${props => props.theme.borderColor};
   border-radius: 0 0 1rem 1rem;
   overflow-y: scroll;
-  /* transition: all 300ms ease-in-out; */
 `;
 
 const Container = styled.div`
