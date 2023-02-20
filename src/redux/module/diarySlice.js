@@ -16,10 +16,14 @@ export const addDiary = async (payload, callback) => {
 
 export const editDiary = async (payload, callback) => {
   const { id, title, content } = payload;
-  await axios.patch(`${process.env.REACT_APP_DIARY_API_KEY}/diary/${id}`, {
-    title,
-    content,
-  });
+  await axios.patch(
+    `${process.env.REACT_APP_DIARY_API_KEY}/diary/${id}
+  `,
+    {
+      title,
+      content,
+    }
+  );
   callback();
 };
 

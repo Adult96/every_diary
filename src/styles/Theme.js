@@ -10,7 +10,7 @@ const color = {
   light_grey: '#7c7979',
   dark_blue: '#497da0',
   blue: '#73aace',
-  dark_blue: '#413d53',
+  shark_blue: '#413d53',
   deep_blue: '#262431',
   yellow: '#fff7d1',
   orange: '#feb546',
@@ -60,8 +60,8 @@ const dark = {
   text: color.white,
   borderColor: color.light_grey,
   innerText: 'Dark',
-  bgBtnColor: color.dark_blue,
-  bgInputColor: color.dark_blue,
+  bgBtnColor: color.shark_blue,
+  bgInputColor: color.shark_blue,
 };
 
 export const lightTheme = { ...light };
