@@ -3,6 +3,7 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from '../element/Button';
 import { addDiary, editDiary } from '../redux/module/diarySlice';
+import Valid from '../utils/inputValidation';
 
 export default function DiaryDetail() {
   const [titleAdd, setTitle] = useState('');
@@ -19,12 +20,20 @@ export default function DiaryDetail() {
   }, [content, title]);
 
   const handleAddDiary = () => {
+    if (!Valid.title(titleAdd) && !Valid.title(contentAdd)) {
+      return alert('제목과 내용을 모두 입력해 주세요');
+    }
+
     addDiary({ date, title: titleAdd, content: contentAdd }, () => {
       navigate(-1);
     });
   };
 
   const handleEditDiary = () => {
+    if (!Valid.title(titleAdd) && !Valid.title(contentAdd)) {
+      return alert('제목과 내용을 모두 입력해 주세요');
+    }
+
     editDiary({ id, title: titleAdd, content: contentAdd }, () => {
       navigate(-1);
     });
