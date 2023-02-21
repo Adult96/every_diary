@@ -13,17 +13,14 @@ const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
 const URL = `${PROXY}`;
 
 export const addDiary = async (payload, callback) => {
-  await axios.post(
-    `${process.env.REACT_APP_DIARY_API_KEY}${URL}/diary`,
-    payload
-  );
+  await axios.post(`${URL}/diary`, payload);
   callback();
 };
 
 export const editDiary = async (payload, callback) => {
   const { id, title, content } = payload;
   await axios.patch(
-    `${process.env.REACT_APP_DIARY_API_KEY}${URL}/diary/${id}
+    `${URL}/diary/${id}
   `,
     {
       title,
@@ -34,9 +31,7 @@ export const editDiary = async (payload, callback) => {
 };
 
 export const deleteDiary = async (payload, callback) => {
-  await axios.delete(
-    `${process.env.REACT_APP_DIARY_API_KEY}${URL}/diary/${payload}`
-  );
+  await axios.delete(`${URL}/diary/${payload}`);
   callback();
 };
 
@@ -44,9 +39,7 @@ export const __getDiary = createAsyncThunk(
   'GET_DIARYS',
   async (payload, thunkAPI) => {
     try {
-      const response = await axios.get(
-        `${process.env.REACT_APP_DIARY_API_KEY}${URL}/diary`
-      );
+      const response = await axios.get(`${URL}/diary`);
       return thunkAPI.fulfillWithValue(response.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
