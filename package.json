@@ -33,6 +33,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
+  "proxy": "https://every-diary-klrzwc1wm-adult96.vercel.app/",
   "eslintConfig": {
     "extends": [
       "react-app",
