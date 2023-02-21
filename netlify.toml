@@ -1,4 +1,4 @@
 [[redirects]]
   from = "/proxy/*"
-  to = "process.env.REACT_APP_DIARY_API_KEY/:splat"
+  to = process.env.REACT_APP_DIARY_API_KEY"/:splat"
   status = 200
