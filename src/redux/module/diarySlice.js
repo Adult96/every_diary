@@ -9,15 +9,21 @@ const initialState = {
   error: null,
 };
 
+const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
+const URL = `${PROXY}`;
+
 export const addDiary = async (payload, callback) => {
-  await axios.post(`${process.env.REACT_APP_DIARY_API_KEY}/diary`, payload);
+  await axios.post(
+    `${process.env.REACT_APP_DIARY_API_KEY}${URL}/diary`,
+    payload
+  );
   callback();
 };
 
 export const editDiary = async (payload, callback) => {
   const { id, title, content } = payload;
   await axios.patch(
-    `${process.env.REACT_APP_DIARY_API_KEY}/diary/${id}
+    `${process.env.REACT_APP_DIARY_API_KEY}${URL}/diary/${id}
   `,
     {
       title,
@@ -28,7 +34,9 @@ export const editDiary = async (payload, callback) => {
 };
 
 export const deleteDiary = async (payload, callback) => {
-  await axios.delete(`${process.env.REACT_APP_DIARY_API_KEY}/diary/${payload}`);
+  await axios.delete(
+    `${process.env.REACT_APP_DIARY_API_KEY}${URL}/diary/${payload}`
+  );
   callback();
 };
 
@@ -37,7 +45,7 @@ export const __getDiary = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       const response = await axios.get(
-        `${process.env.REACT_APP_DIARY_API_KEY}/diary`
+        `${process.env.REACT_APP_DIARY_API_KEY}${URL}/diary`
       );
       return thunkAPI.fulfillWithValue(response.data);
     } catch (error) {
