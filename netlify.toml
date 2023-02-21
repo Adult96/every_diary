@@ -1,4 +1,4 @@
 [[redirects]]
   from = "/proxy/*"
-  to = process.env.REACT_APP_DIARY_API_KEY"/:splat"
+  to = "https://every-diary-klrzwc1wm-adult96.vercel.app/:splat"
   status = 200
