@@ -1,4 +1,4 @@
 [[redirects]]
-  from = "/api/*"
+  from = "/proxy/*"
   to = "https://every-diary-klrzwc1wm-adult96.vercel.app/:splat"
   status = 200
