@@ -11,7 +11,6 @@ const initialState = {
 
 const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
 const URL = `${PROXY}`;
-console.log(URL, `${URL}/diary`);
 
 export const addDiary = async (payload, callback) => {
   await axios.post(`${URL}/diary`, payload);
